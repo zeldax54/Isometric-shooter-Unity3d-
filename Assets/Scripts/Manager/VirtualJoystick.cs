@@ -38,7 +38,7 @@ namespace Assets.Scripts.Manager
         public event Onclickmanager Onclickup;
         #endregion
 
-        private void Awake()
+        private void Start()
         {
             _backgroudImage = GetComponent<Image>();
             _joystickImage = transform.GetChild(0).GetComponent<Image>();
@@ -47,7 +47,7 @@ namespace Assets.Scripts.Manager
             _helper = new MoveRotateHelper();
             _helperCalc = new CalculationsHelper();
             _anim = GetComponent<Animator>();
-
+           
         }
 
         public bool IsShooting()
@@ -60,6 +60,7 @@ namespace Assets.Scripts.Manager
             if(IsforRotate)
                _shoot = true;
             _joystickImage.color = DragColor;
+           
         }
 
         public void OnDrag(PointerEventData eventData)
@@ -67,6 +68,7 @@ namespace Assets.Scripts.Manager
             Vector2 position;
             _p = eventData;
             _isdragging = true;
+           
             if (RectTransformUtility.ScreenPointToLocalPointInRectangle(_backgroudImage.rectTransform,
                 eventData.position,eventData.pressEventCamera,out position)&&_isAviable)
             {
@@ -75,6 +77,7 @@ namespace Assets.Scripts.Manager
                     _inputVector = _inputVector.normalized*_joystickImage.rectTransform.sizeDelta.x;
                 _joystickImage.rectTransform.anchoredPosition = _inputVector;
             }
+
         }
 
 

@@ -1,5 +1,6 @@
 using Assets.Scripts.Manager;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 namespace Assets.Scripts.Enemy
 {
@@ -36,6 +37,7 @@ namespace Assets.Scripts.Enemy
 
         public void TakeDamage(int amount, Vector3? hitPoint ,bool isgrenade=false)
         {
+           
             if(_isDeath)
                 return;
             _enemyAudio.Play();

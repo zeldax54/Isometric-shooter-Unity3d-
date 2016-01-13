@@ -13,7 +13,7 @@ namespace Assets.Scripts.Enemy
         private PlayerHealth _playerHealth;
         private bool _playerInRange;
         private float _timer;
-
+        public bool IsAtacking { get; set; }
         private EnemyHealth _enemyhealth;
 
         private void Awake()
@@ -40,6 +40,7 @@ namespace Assets.Scripts.Enemy
         private void Update()
         {
             _timer += Time.deltaTime;
+            IsAtacking = false;
             if (_timer >= TimeBetweenAttacks && _playerInRange && _enemyhealth.CurrentHealth>0)
             {
                 Attack();
@@ -52,6 +53,7 @@ namespace Assets.Scripts.Enemy
 
         private void Attack()
         {
+            IsAtacking = true;
             _timer = 0;
             if (_playerHealth.CurrentHealth > 0)
             {

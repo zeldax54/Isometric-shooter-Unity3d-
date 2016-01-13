@@ -19,6 +19,7 @@ namespace Assets.Scripts.Player
         private PlayerShooting _playerShooting;
         private bool _isDead;
         private bool _damage;
+        public bool Superman;
 
         private void Awake()
         {
@@ -37,14 +38,18 @@ namespace Assets.Scripts.Player
 
         public void TakeDamage(int ammount)
         {
-            _damage = true;
-            CurrentHealth -= ammount;
-            HealthSlider.value = CurrentHealth;
-            _playerAudio.Play();
-            if (CurrentHealth <= 0 && !_isDead)
+            if (!Superman)
             {
-                Death();
+                _damage = true;
+                CurrentHealth -= ammount;
+                HealthSlider.value = CurrentHealth;
+                _playerAudio.Play();
+                if (CurrentHealth <= 0 && !_isDead)
+                {
+                    Death();
+                }
             }
+          
         }
 
         private void Death()

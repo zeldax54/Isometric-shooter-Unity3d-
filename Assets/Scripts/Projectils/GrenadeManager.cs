@@ -1,5 +1,4 @@
-using System.Threading;
-using Assets.Scripts.DragsManagers;
+
 using Assets.Scripts.Enemy;
 using Assets.Scripts.Player;
 using UnityEngine;
